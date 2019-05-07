@@ -22,3 +22,6 @@ Not a critical issue *at least* until the game can play itself because getting t
 
 2. The perimeter/area (but most importantly perimeter) calculation will only ignore the falling piece if there is at least 1 empty row between the falling piece and the highest point of the tower.  
 Not a critical issue at the moment because ideally the game should only be calculating as soon as the next piece changes, so the falling piece will be at its highest point.
+
+3. The program needs to be in a precise position in order for literally everything to work correctly.  
+Not a critical issue because the program will always launch in that position, even if I move it around before closing it. I would like for the program to be more flexible, though.
