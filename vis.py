@@ -1,19 +1,24 @@
 import cv2
 import numpy as np
+import os
 
 def create_mini_board(fname='board_raw') :
 	# read the image in grayscale
 	game_board = cv2.imread(f'{fname}.png', 0)
+	os.remove(f'{fname}.png')
 	y, x = game_board.shape
-	#x, y = game_board.shape
+
 	# create the small version of the board
-	# each pixel is a cell of a tetromino
+	# each pixel is a single block of a tetromino
 	arr = []
+	# range starts at half block width (to look at center of a block)
+	# and advances 1 block width per loop
 	y_range = range(int(y/40), y, int(y/20))
 	x_range = range(int(x/20), x, int(x/10))
 	for i in y_range :
 		arr2 = []
 		for j in x_range :
+			# if pixel is not black, there is a block there
 			if game_board[i][j] > 0 :
 				arr2.append(255)
 			else :
@@ -21,14 +26,13 @@ def create_mini_board(fname='board_raw') :
 		arr.append(arr2)
 
 	arr = np.array(arr)
+	# write the new board picture to a file
 	cv2.imwrite('board.png', arr)
-
-	# write the new picture to a file
-	cv2.imwrite('game_board.png', game_board)
 
 def create_mini_next(fname='next_raw') :
 	# read the image in grayscale
 	next_piece = cv2.imread(f'{fname}.png', 0)
+	os.remove(f'{fname}.png')
 	y, x = next_piece.shape
 
 	# Figure out which piece it is through elimination
