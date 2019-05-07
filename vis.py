@@ -36,33 +36,42 @@ def create_mini_next(fname='next_raw') :
 	if next_piece[int((1/4)*y)][int(x/2)] == 0 :
 		# check square
 		if next_piece[int(y/2)][int((5/8)*x)] == 0 :
+			arr = np.array([[255, 255], [255, 255]])
 			print('square')
 		# else long
 		else :
+			arr = np.array([[255, 255, 255, 255]])
 			print('long')
 	# check below center pixel
 	elif next_piece[int((3/4)*y)][int(x/2)] == 0 :
 		# check J
 		if next_piece[int((3/4)*y)][int((1/4)*x)] == 0 :
+			arr = np.array([[255, 0, 0],[255, 255, 255]])
 			print('J')
 		# else L
 		else :
+			arr = np.array([[0, 0, 255],[255, 255, 255]])
 			print('L')
 	# check bottom left pixel
 	elif next_piece[int((3/4)*y)][int((1/4)*x)] == 0 :
 		# check T
 		if next_piece[int((3/4)*y)][int((3/4)*x)] == 0 :
+			arr = np.array([[255, 255, 255], [0, 255, 0]])
 			print('T')
 		# else Z
 		else :
+			arr = np.array([[255, 255, 0], [0, 255, 255]])
 			print('Z')
 	# only thing left is S piece
 	else :
+		arr = np.array([[0, 255, 255],[255, 255, 0]])
 		print('S')
+
+
 
 	# create the small version of the piece
 	# each pixel is a cell of a tetromino
-	cv2.imwrite('next_piece.png', next_piece)
+	cv2.imwrite('next_piece.png', arr)
 
 if __name__ == '__main__' :
 	create_mini_next()
