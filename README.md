@@ -24,4 +24,4 @@ Not a critical issue *at least* until the game can play itself because getting t
 Not a critical issue at the moment because ideally the game should only be calculating as soon as the next piece changes, so the falling piece will be at its highest point.
 
 3. The game needs to be in a precise position in order for literally everything to work correctly.  
-Not a critical issue because the program will always launch in that position, even if I move it around before closing it. I would like for this program to be more flexible with the game's position, though.
+Not a critical issue because the game will always launch in that position, even if I move it around before closing it. I would like for this program to be more flexible with the game's position, though.
